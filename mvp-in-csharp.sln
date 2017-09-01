@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 15.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvp-in-csharp", "mvp-in-csharp.csproj", "{587932E4-5795-4956-879E-8E92FA27D113}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{587932E4-5795-4956-879E-8E92FA27D113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587932E4-5795-4956-879E-8E92FA27D113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587932E4-5795-4956-879E-8E92FA27D113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{587932E4-5795-4956-879E-8E92FA27D113}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
