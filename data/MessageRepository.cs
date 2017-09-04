@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace mvp_in_csharp.data
 {
-  public class MessageRepository:MessageDataSource
+  public class MessageRepository : IMessageDataSource
   {
-    readonly MessageDataSource localDataSource;
-    public MessageRepository(MessageDataSource localDataSource)
+    readonly IMessageDataSource localDataSource;
+    public MessageRepository(IMessageDataSource localDataSource)
     {
       this.localDataSource = localDataSource;
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace mvp_in_csharp.data
 {
-  public class LocalMessageDataSource : MessageDataSource
+  public class LocalMessageDataSource : IMessageDataSource
   {
     private InFileSavingHelper fileHelper;
     public LocalMessageDataSource(InFileSavingHelper fileHelper)

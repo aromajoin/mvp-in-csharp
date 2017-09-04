@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 namespace mvp_in_csharp.data
 {
+  // Encodes/Decodes data by using a specific encoding format.
+  // Currently, data is serialized to JSON format.
   public class FileParser
   {
     public string SerializeData(IList<Message> messages)
