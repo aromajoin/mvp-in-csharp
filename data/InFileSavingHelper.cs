@@ -9,23 +9,23 @@ namespace mvp_in_csharp.data
   public class InFileSavingHelper
   {
     readonly FileParser parser;
-    string filePath;
+    public string FilePath { get; set; }
     public InFileSavingHelper(FileParser parser, string filePath)
     {
       this.parser = parser;
-      this.filePath = filePath;
+      FilePath = filePath;
     }
 
     public IList<Message> LoadMessagesFromFile() {
       // Check whether if file is exists or not
-      ValidateFile(filePath);
+      ValidateFile(FilePath);
 
       TextReader reader = null;
 
       // Read json from file
       try
       {
-        reader = new StreamReader(filePath);
+        reader = new StreamReader(FilePath);
         string json = reader.ReadToEnd();
         return parser.DeserializeData(json);
       }
@@ -41,7 +41,7 @@ namespace mvp_in_csharp.data
 
     public void RemoveMessageFromFile(long messageId) {
       // Check whether if file is exists or not
-      ValidateFile(filePath);
+      ValidateFile(FilePath);
 
       // TODO: Check whether the messsage with expected id exists or not
 
@@ -57,7 +57,7 @@ namespace mvp_in_csharp.data
       // Write it to file
       try
       {
-        writer = new StreamWriter(filePath);
+        writer = new StreamWriter(FilePath);
         writer.WriteLine(json);
       }
       finally
