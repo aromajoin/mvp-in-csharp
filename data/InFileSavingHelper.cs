@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+
 namespace mvp_in_csharp.data
 {
+  // Saves and loads data to/from local file.
+  // It uses a parser to encode file.
   public class InFileSavingHelper
   {
     readonly FileParser parser;
@@ -64,10 +67,12 @@ namespace mvp_in_csharp.data
     }
 
     // Validates file existence
-    void ValidateFile(string filePath)
+    void ValidateFile(string path)
     {
-      // Whether it is file is exi
-      throw new NotImplementedException();
+      if (path == null)
+        throw new ArgumentNullException(nameof(path));
+      if (!File.Exists(path))
+        throw new FileNotFoundException();
     }
   }
 }
