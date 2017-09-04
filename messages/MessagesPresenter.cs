@@ -12,6 +12,7 @@ namespace mvp_in_csharp.messages
     {
       this.repository = repository;
       this.view = view;
+      this.view.SetPresenter(this);
     }
 
     public void LoadMessages()
