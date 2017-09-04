@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
 using mvp_in_csharp.data;
 using mvp_in_csharp.messages;
 
@@ -8,7 +6,7 @@ namespace mvp_in_csharp
 {
   class Program
   {
-    const string SAVING_FILE_PATH = "../../../messages.json";
+    const string SAVING_FILE_PATH = "./messages.json";
 
     // Because users only interact with view, so only it should be declared as a global variable
     IMessagesView view;
@@ -24,7 +22,8 @@ namespace mvp_in_csharp
       program.view.OnRequestedToLoadMessages();
     }
 
-    void SetUp(){
+    void SetUp()
+    {
       // Model
       InFileSavingHelper fileSaveHelper = new InFileSavingHelper(new FileParser(), SAVING_FILE_PATH);
       LocalMessageDataSource localDataSource = new LocalMessageDataSource(fileSaveHelper);
