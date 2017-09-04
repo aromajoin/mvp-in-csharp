@@ -12,14 +12,13 @@ namespace mvp_in_csharp
     IMessagesView view;
     static void Main(string[] args)
     {
-      Console.WriteLine("MESSAGE MANAGER");
+      Console.WriteLine("=== MESSAGE MANAGER ====");
       Program program = new Program();
       program.SetUp();
+      IMessagesView view = program.view;
 
       // Users ask to open menu screen
-
-      // Users ask to load messages
-      program.view.OnRequestedToLoadMessages();
+      view.OnRequestedToShowMenu();
     }
 
     void SetUp()

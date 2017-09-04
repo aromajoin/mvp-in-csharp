@@ -20,17 +20,26 @@ namespace mvp_in_csharp.messages
       // Load data from model
       IList<Message> results = repository.LoadMessages();
 
-      // Show it on view
-      view.ShowMessages(results);
+      if (results == null || results.Count == 0) {
+        view.ShowNotification("There is no message");
+      } else {
+        view.ShowMessages(results); 
+      }
+
+      // Comeback to menu screen
+      view.ShowInitialScreen();
     }
 
-    public void SaveMessage(Message message)
+    public void AddMessage(Message message)
     {
       // Add new message to model
       repository.AddMessage(message);
 
       // Show notification on view
       view.ShowNotification("Add message successfully.");
+
+      // Comeback to menu screen
+      view.ShowInitialScreen();
     }
 
     public void RemoveMessage(long id)
@@ -40,6 +49,14 @@ namespace mvp_in_csharp.messages
 
       // Show notification on view
       view.ShowNotification($"Remove message( id = {id}) succefully.");
+
+      // Comeback to menu screen
+      view.ShowInitialScreen();
+    }
+
+    public void ShowMenuScreen()
+    {
+      view.ShowInitialScreen();
     }
   }
 }

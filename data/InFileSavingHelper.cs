@@ -16,9 +16,10 @@ namespace mvp_in_csharp.data
       FilePath = filePath;
     }
 
-    public IList<Message> LoadMessagesFromFile() {
-      // Check whether if file is exists or not
-      ValidateFile(FilePath);
+    public IList<Message> LoadMessagesFromFile()
+    {
+      // Return null when file does not exist
+      if (!File.Exists(FilePath)) return null;
 
       TextReader reader = null;
 
@@ -35,20 +36,21 @@ namespace mvp_in_csharp.data
       }
     }
 
-    public void AppendMessageToFile(Message message) {
+    public void AppendMessageToFile(Message message)
+    {
+      IList<Message> messages = LoadMessagesFromFile();
+      if (messages == null) messages = new List<Message>();
+      messages.Add(message);
+      SaveMessagesToFile(messages);
+    }
+
+    public void RemoveMessageFromFile(long messageId)
+    {
       throw new NotImplementedException();
     }
 
-    public void RemoveMessageFromFile(long messageId) {
-      // Check whether if file is exists or not
-      ValidateFile(FilePath);
-
-      // TODO: Check whether the messsage with expected id exists or not
-
-      throw new NotImplementedException();
-    }
-
-    public void SaveMessagesToFile(IList<Message> messages) {
+    public void SaveMessagesToFile(IList<Message> messages)
+    {
       TextWriter writer = null;
 
       // Compose json string 
@@ -64,15 +66,6 @@ namespace mvp_in_csharp.data
       {
         if (writer != null) writer.Close();
       }
-    }
-
-    // Validates file existence
-    void ValidateFile(string path)
-    {
-      if (path == null)
-        throw new ArgumentNullException(nameof(path));
-      if (!File.Exists(path))
-        throw new FileNotFoundException();
     }
   }
 }

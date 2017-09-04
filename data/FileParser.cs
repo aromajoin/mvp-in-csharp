@@ -18,9 +18,7 @@ namespace mvp_in_csharp.data
     {
       if (text == null || text.Trim().Equals(""))
         return null;
-
-      // TODO: Validate format before deserializing data.
-
+      
       return JsonConvert.DeserializeObject<List<Message>>(text);
     }
   }

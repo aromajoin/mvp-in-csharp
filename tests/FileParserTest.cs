@@ -39,11 +39,6 @@ namespace mvp_in_csharp.tests
     }
 
     [Fact]
-    public void DeserializeData_ShouldThrowException_WhenJsonFormatIsInvalid() {
-      Assert.Throws<ArgumentException>(() => fileParser.DeserializeData(TestUtils.INVALID_JSON));
-    }
-
-    [Fact]
     public void DeserializeData_ShouldReturnList_WhenJsonFormatIsValid()
     {
       Assert.Equal(fileParser.DeserializeData(TestUtils.JSON), TestUtils.GetMockMessages());
