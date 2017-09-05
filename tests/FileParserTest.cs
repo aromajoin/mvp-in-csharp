@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using mvp_in_csharp.data;
+using mvp_in_csharp.mock;
 namespace mvp_in_csharp.tests
 {
   public class FileParserTest
@@ -28,8 +29,8 @@ namespace mvp_in_csharp.tests
     [Fact]
     public void SerializeData_ShouldReturnJSON_IfListIsValid()
     {
-      string json = fileParser.SerializeData(TestUtils.GetMockMessages());
-      Assert.Equal(json, TestUtils.JSON);
+      string json = fileParser.SerializeData(MockDataProvider.GetMockMessages());
+      Assert.Equal(json, MockDataProvider.JSON);
     }
 
     [Fact]
@@ -41,7 +42,7 @@ namespace mvp_in_csharp.tests
     [Fact]
     public void DeserializeData_ShouldReturnList_WhenJsonFormatIsValid()
     {
-      Assert.Equal(fileParser.DeserializeData(TestUtils.JSON), TestUtils.GetMockMessages());
+      Assert.Equal(fileParser.DeserializeData(MockDataProvider.JSON), MockDataProvider.GetMockMessages());
     }
   }
 }
