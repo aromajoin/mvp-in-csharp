@@ -21,7 +21,7 @@ namespace mvp_in_csharp.messages
       IList<Message> results = repository.LoadMessages();
 
       if (results == null || results.Count == 0) {
-        view.ShowNotification("There is no message");
+        view.ShowNotification("NO MESSAGES");
       } else {
         view.ShowMessages(results); 
       }

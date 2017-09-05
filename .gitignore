@@ -19,6 +19,5 @@ _ReSharper.*
 *.orig
 .DS_Store
 
-# Project test file
-test.json
-tests/user_saving.json
+# Generated Data file
+messages.json
