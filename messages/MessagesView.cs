@@ -17,7 +17,7 @@ namespace mvp_in_csharp.messages
     {
       if (mode == 1)
       {
-        Console.WriteLine("Load messages: ");
+        Console.WriteLine("Load messages ... ");
         OnRequestedToLoadMessages();
       }
       else if (mode == 2)
@@ -56,6 +56,7 @@ namespace mvp_in_csharp.messages
 
     public void ShowInitialScreen()
     {
+      Console.WriteLine();
       Console.WriteLine("*** Choose Mode ***");
       Console.WriteLine("1. Print out all messages.");
       Console.WriteLine("2. Add a new message.");
@@ -69,21 +70,20 @@ namespace mvp_in_csharp.messages
 
     public void ShowMessages(IList<Message> messages)
     {
-      Console.WriteLine($"Messages count: {messages.Count}");
-      Console.WriteLine("Messages detail:");
+      Console.WriteLine($"{messages.Count} message(s):");
       PrintMessages(messages);
     }
 
     public void ShowNotification(string msg)
     {
-      Console.WriteLine($"Notification: {msg}");
+      Console.WriteLine($"{msg}");
     }
 
     void PrintMessages(IList<Message> messages)
     {
       foreach (var message in messages)
       {
-        Console.WriteLine(message);
+        Console.WriteLine($" - {message}");
       }
     }
   }
