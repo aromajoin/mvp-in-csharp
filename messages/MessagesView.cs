@@ -48,7 +48,8 @@ namespace mvp_in_csharp.messages
       long id = Convert.ToInt64(Console.ReadLine());
       Console.Write("content: ");
       string content = Console.ReadLine();
-      Message message = new Message(id, content);
+      DateTime created = DateTime.Now;
+      Message message = new Message(id, content, created);
 
       presenter.AddMessage(message);
     }
